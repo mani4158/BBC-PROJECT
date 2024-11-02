@@ -1,0 +1,68 @@
+
+<div class="login-page">
+  <button class="back-button" (click)="goBack()" title="Go Back">
+     Home
+  </button>
+  <div class="login-container">
+    
+    <h2>Employee Login</h2>
+    <form [formGroup]="employeeForm" (ngSubmit)="submitEmployeeId()">
+      <div class="form-group">
+        <label for="employeeId">Employee ID</label>
+        <input
+          type="text"
+          id="employeeId"
+          formControlName="employeeId"
+          class="form-control"
+          placeholder="Enter your employee ID"
+        />
+        <div *ngIf="employeeForm.get('employeeId')?.invalid && employeeForm.get('employeeId')?.touched" class="error">
+          Employee ID is required.
+        </div>
+        <div *ngIf="loginError" class="error">{{ loginError }}</div>
+      </div>
+    </form>
+
+    <button type="button" class="btn btn-block" 
+            [disabled]="employeeForm.invalid || otpGenerated || loadingOtp" 
+            (click)="submitEmployeeId()">
+      <ng-container *ngIf="!loadingOtp">Submit</ng-container>
+      <ng-container *ngIf="loadingOtp">
+        <div class="spinner"></div>
+        Generating OTP...
+      </ng-container>
+    </button>
+
+    <div *ngIf="otpGenerated">
+      <form [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
+        <div class="form-group">
+          <label for="otp">Enter OTP</label>
+          <input
+            type="text"
+            id="otp"
+            formControlName="otp"
+            class="form-control"
+            placeholder="Enter OTP"
+          />
+          <div *ngIf="otpForm.get('otp')?.invalid && otpForm.get('otp')?.touched" class="error">
+            OTP is required.
+          </div>
+        </div>
+      </form>
+
+      <button type="button" class="btn btn-block" 
+              [disabled]="otpForm.invalid || loadingVerifyOtp" 
+              (click)="verifyOtp()">
+        <ng-container *ngIf="!loadingVerifyOtp">Submit OTP</ng-container>
+        <ng-container *ngIf="loadingVerifyOtp">
+          <div class="spinner"></div>
+          Verifying OTP...
+        </ng-container>
+      </button>
+
+      <div *ngIf="otpError" class="error">Invalid OTP, please try again.</div>
+    </div>
+
+    <div *ngIf="otpVerified" class="success">Successfully Logged In!</div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>Bulk Upload Customers</h2>
+  
+  <input type="file" (change)="onFileSelected($event)" [disabled]="isUploading || isUploadComplete" />
+  <button (click)="uploadFile()" [disabled]="isUploading || isUploadComplete">Upload</button>
+
+  <!-- Spinner -->
+  <div *ngIf="isUploading" class="spinner">
+    <div class="loading-spinner"></div>
+    <p>Uploading...</p>
+  </div>
+
+  <div *ngIf="uploadError" class="error-message">
+    {{ uploadError }}
+  </div>
+
+  <div *ngIf="uploadSuccess" class="success-message">
+    {{ uploadSuccess }}
+  </div>
+</div>

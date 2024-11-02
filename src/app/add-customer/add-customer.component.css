@@ -1,0 +1,100 @@
+.customer-form-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 500;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+input[type="password"] {
+  width: 96%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+button {
+  position: relative;
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button[disabled] {
+  background-color: #0056b3;
+  cursor: not-allowed;
+}
+
+.spinner-border {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 0.2em solid transparent;
+  border-top-color: white;
+  border-radius: 50%;
+  animation: colorful-spinner 0.75s linear infinite;
+}
+
+@keyframes colorful-spinner {
+  0% {
+    border-top-color: #007bff;
+  }
+  25% {
+    border-top-color: #28a745;
+  }
+  50% {
+    border-top-color: #ffc107;
+  }
+  75% {
+    border-top-color: #dc3545;
+  }
+  100% {
+    border-top-color: #007bff;
+  }
+}

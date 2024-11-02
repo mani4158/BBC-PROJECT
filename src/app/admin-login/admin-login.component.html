@@ -1,0 +1,39 @@
+<div class="login-container">
+  <h2>Admin Login</h2>
+  <button class="back-button" (click)="goBack()" title="Go Back">
+    <i class></i> Home
+  </button>
+  
+  <form *ngIf="!isOtpSent" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" formControlName="username" class="form-control" placeholder="Enter your username" />
+      <div *ngIf="loginForm.controls['username'].invalid && loginForm.controls['username'].touched" class="error">
+        Username is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" formControlName="password" class="form-control" placeholder="Enter your password" />
+      <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched" class="error">
+        Password is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+    <div *ngIf="loginError" class="error">{{loginError}}</div>
+  </form>
+
+  <form *ngIf="isOtpSent" [formGroup]="otpForm" (ngSubmit)="onSubmitOtp()">
+    <div class="form-group">
+      <label for="otp">Enter OTP</label>
+      <input type="text" id="otp" formControlName="otp" class="form-control" placeholder="Enter OTP" />
+      <div *ngIf="otpForm.controls['otp'].invalid && otpForm.controls['otp'].touched" class="error">
+        OTP is required.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="otpForm.invalid">Submit OTP</button>
+    <div *ngIf="otpError" class="error">{{otpError}}</div>
+  </form>
+</div>

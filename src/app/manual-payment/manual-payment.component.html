@@ -1,0 +1,61 @@
+<div class="invoice-container">
+  <h1 class="invoice-title">INVOICE</h1>
+  <div class="invoice-header">
+    <div class="company-details">
+      <p> <b>Billing From,</b></p>
+      <p>BBC Bharath Bill Pay </p>
+      <p>Pune, Maharastra, 698732,</p>
+      <p>Phone: 8576538409 </p>
+    </div>
+    <div class="invoice-summary">
+      <p><strong>Cust Id:</strong> {{ custId }}</p>
+      <p><strong>Bill Number:</strong> {{ invoiceId }}</p>
+      <p><strong>Invoice Date:</strong> {{ currentDate | date:'longDate' }}</p>
+      <p><strong>Due Date:</strong> {{ dueDate | date:'longDate' }}</p>
+      <p><strong>Amount Due:</strong> {{ finalAmount | currency:'INR' }}</p>
+    </div>
+  </div>
+  <div class="customer-details">
+    <h4>Billed To:</h4>
+    <p><strong>{{ custName }}</strong></p>
+    <p>{{ custEmail }}</p>
+    <p>{{ custPhone }}</p>
+  </div>
+  <table class="invoice-table">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th>Units Consumed</th>
+        <th>Rate (₹/unit)</th>
+        <th>Total (₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Electricity Usage</td>
+        <td>{{ unitsConsumed }} Units</td>
+        <td>₹41.50</td>
+        <td>{{ totalAmount | currency:'INR' }}</td>
+      </tr>
+      <tr *ngIf="isDiscountApplied">
+        <td>Discount (5%) Early Pay</td>
+        <td colspan="2"></td>
+        <td>-{{ discount | currency:'INR' }}</td>
+      </tr>
+      <tr>
+        <td colspan="3"><strong>Total Due</strong></td>
+        <td><strong>{{ finalAmount | currency:'INR' }}</strong></td>
+      </tr>
+    </tbody>
+  </table>
+<button type="button" class="btn btn-success" 
+[disabled]="loadingPayment" 
+(click)="makePayment()">
+<ng-container *ngIf="!loadingPayment">Pay Now ({{ finalAmount | currency:'INR' }})</ng-container>
+<ng-container *ngIf="loadingPayment">
+<div class="spinner"></div>
+Processing Payment...
+</ng-container>
+</button>
+  <div *ngIf="successMessage" class="alert alert-success mt-3">{{ successMessage }}</div>
+</div>

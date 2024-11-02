@@ -1,0 +1,34 @@
+<div class="form-container">
+  <h2>Add New Employee</h2>
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter employee name" />
+      <div *ngIf="employeeForm.controls['name'].invalid && employeeForm.controls['name'].touched" class="error">
+        Name is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" formControlName="email" class="form-control" placeholder="Enter employee email" />
+      <div *ngIf="employeeForm.controls['email'].invalid && employeeForm.controls['email'].touched" class="error">
+        Invalid email format.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="text" id="phone" formControlName="phone_number" class="form-control" placeholder="Enter phone number" />
+      <div *ngIf="employeeForm.controls['phone_number'].invalid && employeeForm.controls['phone_number'].touched" class="error">
+        Phone number must be 10 digits.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid || loading">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      <span *ngIf="!loading">Submit</span>
+    </button>
+  </form>
+</div>

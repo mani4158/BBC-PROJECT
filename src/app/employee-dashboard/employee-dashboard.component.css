@@ -1,0 +1,193 @@
+/* General Body Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7fa;
+    background-image: url('../../../public/assets/images/premium_photo-1661315477345-1a1709d2b3d5.png'); /* Replace with your image path */
+
+}
+
+/* Dashboard Container Styles */
+.dashboard-container {
+  display: flex;
+  
+  height: 100vh;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 250px;
+  background-color: #343a40;
+  color: white;
+  height: 100vh;
+  padding: 10px;
+  position: fixed;
+}
+
+.sidebar-header {
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.menu-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-items li {
+  margin: 30px 0;
+}
+
+.menu-items a {
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  display: block;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-items a:hover,
+.menu-items a.active {
+  background-color: #495057;
+}
+
+/* Icons in Sidebar */
+.menu-items i {
+  margin-right: 10px;
+}
+
+/* Main Content Styles */
+.main-content {
+  margin-left: 270px;
+  padding: 30px;
+  flex-grow: 1;
+  background-color: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+}
+
+/* Top Navigation Bar Styles */
+.top-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  /* background-color: #dde2e7; */
+}
+
+.button-container-left {
+  display: flex;
+  gap: 10px;
+}
+
+.button-container-right {
+  display: flex;
+  gap: 10px;
+}
+
+/* Button Styles */
+.small-button, .logout-button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.logout-button {
+  background-color: #dc3545;
+}
+
+.small-button:hover {
+  background-color: #0056b3;
+}
+
+.logout-button:hover {
+  background-color: #c82333;
+}
+
+.dashboard-welcome{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+/* Full-Page Welcome Message Styles */
+.full-page-welcome {
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Column layout */
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: 100vh; /* Full viewport height */
+  color: #333; /* Text color */
+  text-align: center; /* Centered text */
+  padding:0cqmax; /* Padding around content */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.full-page-welcome h1 {
+  font-size: 3rem; /* Large font size for the main heading */
+  color: #555; /* Softer text color */
+  margin-bottom: 20px; /* Space below heading */
+}
+
+.full-page-welcome p {
+  font-size: 1.5rem; /* Medium font size for the description */
+  color: #555; /* Softer text color */
+  margin-bottom: 40px; /* Space below description */
+}
+
+.quick-actions {
+  display: flex; /* Flexbox for quick actions */
+  justify-content: center; /* Center items horizontally */
+  flex-wrap: wrap; /* Wrap items if necessary */
+}
+
+.action-item {
+  background-color: #28a745; /* Green background for action buttons */
+  color: white; /* Text color */
+  padding: 15px 30px; /* Padding for buttons */
+  margin: 10px; /* Space around buttons */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1.2rem; /* Font size for action items */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  cursor: pointer; /* Pointer cursor on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for buttons */
+}
+
+.action-item:hover {
+  background-color: #218838; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Additional Action Item Colors */
+.action-item:nth-child(1) {
+  background-color: #17a2b8; /* Teal for "View Transactions" */
+}
+  
+.action-item:nth-child(2) {
+
+  background-color: #17a2b8; /* Teal for "View Transactions" */
+}
+
+.action-item:nth-child(3) {
+  background-color: #17a2b8; /* Teal for "View Transactions" */
+}
+
+.action-item:nth-child(4) {
+  background-color: #17a2b8; /* Teal for "View Transactions" */
+}
+
+.action-item:nth-child(5) {
+  background-color: #17a2b8; /* Teal for "View Transactions" */
+}

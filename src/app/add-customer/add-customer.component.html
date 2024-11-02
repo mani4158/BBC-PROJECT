@@ -1,0 +1,101 @@
+<div class="customer-form-container">
+  <h2>Customer Data Form</h2>
+
+  <form [formGroup]="customerForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+      <label for="customer_id">Customer ID</label>
+      <input
+        id="customer_id"
+        formControlName="custId"
+        type="text"
+        class="form-control"
+        placeholder="Enter customer ID"
+      />
+      <div *ngIf="customerForm.get('custId')?.invalid && customerForm.get('custId')?.touched" class="error">
+        Customer ID is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        id="name"
+        formControlName="name"
+        type="text"
+        class="form-control"
+        placeholder="Enter customer name"
+      />
+      <div *ngIf="customerForm.get('name')?.invalid && customerForm.get('name')?.touched" class="error">
+        Name is required and must be at least 3 characters long.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        formControlName="email"
+        type="email"
+        class="form-control"
+        placeholder="Enter customer email"
+      />
+      <div *ngIf="customerForm.get('email')?.invalid && customerForm.get('email')?.touched" class="error">
+        Enter a valid email.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phone_number">Phone Number</label>
+      <input
+        id="phone_number"
+        formControlName="phoneNumber"
+        type="text"
+        class="form-control"
+        placeholder="Enter phone number"
+      />
+      <div *ngIf="customerForm.get('phoneNumber')?.invalid && customerForm.get('phoneNumber')?.touched" class="error">
+        Phone number is required and must be valid.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="units_consumed">Units Consumed</label>
+      <input
+        id="units_consumed"
+        formControlName="unitsConsumed"
+        type="number"
+        class="form-control"
+        placeholder="Enter units consumed"
+      />
+      <div *ngIf="customerForm.get('unitsConsumed')?.invalid && customerForm.get('unitsConsumed')?.touched" class="error">
+        Units consumed is required and must be a positive number.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <input type="date" id="startDate" formControlName="startDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">End Date</label>
+      <input type="date" id="endDate" formControlName="endDate" class="form-control" />
+      <div *ngIf="endDateInvalid" class="error">End date must be after the start date.</div>
+    </div>
+
+    <div class="form-group">
+      <label for="dueDate">Due Date</label>
+      <input type="date" id="dueDate" formControlName="dueDate" class="form-control" />
+      <div *ngIf="dueDateInvalid" class="error">Due date must not be before the start date.</div>
+    </div>
+
+    <button type="submit" [disabled]="customerForm.invalid || endDateInvalid || dueDateInvalid || isLoading">
+      <ng-container *ngIf="!isLoading; else loadingTemplate">
+        Submit
+      </ng-container>
+      <ng-template #loadingTemplate>
+        <span class="spinner-border colorful-spinner" role="status" aria-hidden="true"></span> Submitting...
+      </ng-template>
+    </button>
+  </form>
+</div>

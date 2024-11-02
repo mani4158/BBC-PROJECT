@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="search-section">
+      <form (submit)="getInvoices()" class="search-form">
+          <div class="form-group">
+              <!-- <label for="customerId">Customer ID</label> -->
+              <div class="input-group">
+                  <input type="text" [(ngModel)]="customerId" id="customerId" class="form-control" name="customerId" placeholder="Search By Customer ID">
+                  <button type="submit" class="btn btn-primary button">Search</button>
+              </div>
+          </div>
+      </form>
+  </div>
+
+  <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+  </div>
+
+  <div *ngIf="filteredInvoices.length > 0">
+      <!-- <h3 *ngIf="customerId">Unpaid Bills for Customer ID: {{ customerId }}</h3> -->
+      <h3 *ngIf="!customerId">All Unpaid Bills</h3>
+
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>Bill Id</th>
+                  <th>Cust Id</th>
+                  <th>Name</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Amount</th>
+                  <th>Due Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let invoice of filteredInvoices">
+                  <td>{{ invoice.id }}</td>
+                  <td>{{ invoice.customer.custId }}</td>
+                  <td>{{ invoice.customer.name }}</td>
+                  <td>{{ invoice.startDate }}</td>
+                  <td>{{ invoice.endDate }}</td>
+                  <td>{{ invoice.totalAmount | currency:'INR' }}</td>
+                  <td>{{ invoice.dueDate }}</td>
+                  <td>{{ invoice.amountStatus ? 'Paid' : 'Unpaid' }}</td>
+                  <td>
+                      <button *ngIf="!invoice.amountStatus" class="btn btn-success" (click)="goToPayment(invoice.id, invoice.customer.custId)">
+                          Pay
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+  </div>
+</div>

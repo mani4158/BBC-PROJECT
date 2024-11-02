@@ -1,0 +1,88 @@
+.invoice-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .invoice-title {
+    text-align: center;
+    font-size: 2em;
+    color: #4a90e2;
+    margin-bottom: 20px;
+  }
+  
+  .invoice-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .company-details, .invoice-summary {
+    width: 48%;
+  }
+  
+  .customer-details {
+    margin-bottom: 20px;
+  }
+  
+  .invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .invoice-table th, .invoice-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .invoice-table th {
+    background-color: #4a90e2;
+    color: white;
+  }
+  
+  .invoice-table td {
+    font-size: 1em;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1em;
+  }
+  
+  .btn:hover {
+    background-color: #218838;
+  }
+  
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+  }
+  .spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #ffffff; 
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-right: 5px;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  

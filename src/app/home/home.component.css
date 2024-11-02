@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body, html {
+  height: 100%;
+}
+
+.home-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('../../../public/assets/images/network-mesh-wire-digital-technology-background_1017-27428.avif') no-repeat center center/cover;
+}
+
+.login-container {
+  text-align: center;
+  color: #8f7e7e;
+  background: rgba(255, 255, 255, 0.1); 
+  padding: 50px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  width: 390px;
+  backdrop-filter: blur(10px); 
+}
+
+h1 {
+  color: #110f0f; 
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 600;
+}
+
+.login-box {
+  margin-top: 20px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.login-btn {
+  padding: 15px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #007bff; 
+  color: white;
+  transition: background 0.3s ease, transform 0.3s ease;
+  font-weight: 500;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.login-btn:active {
+  background-color: #004099; 
+}
+
+.login-btn:nth-child(2) {
+  background-color: #28a745; 
+}
+
+.login-btn:nth-child(2):hover {
+  background-color: #218838;
+}
+
+.login-btn:nth-child(2):active {
+  background-color: #1e7e34;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .login-container {
+    width: 80%;
+  }
+
+  .login-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .login-btn {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .login-container {
+    width: 85%;
+  }
+}
